@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
-import { Button, Stack,  HStack, } from '@chakra-ui/react';
-import { Input,IconButton } from '@chakra-ui/react';
-import {AddIcon,CheckIcon} from '@chakra-ui/icons'
+import { Button, Stack, HStack, } from '@chakra-ui/react';
+import { Input, IconButton } from '@chakra-ui/react';
+import { AddIcon, CheckIcon } from '@chakra-ui/icons'
 import Todo from './Todo';
 
 
@@ -33,64 +33,66 @@ function TodoForm(props) {
   };
 
   return (
-    <form  id="editform" onSubmit={handleSubmit} className='todo-form'>
-      
+    <form id="editform" onSubmit={handleSubmit} className='todo-form'>
+
       {props.edit ? (
 
-  
- <HStack>
 
-<div >
-        <Input
-          required
-          id="outlined-required"
-          label="Required"
-          placeholder='Update your item'
-          value={input}
-          onChange={handleChange}
-          name='text'
-          ref={inputRef}
-          
-          className='todo-input edit' />
-          <Button colorScheme="blue"
-    _hover={{
-    background: "blue.600",
-    color: "white",}} 
-          id="update-btn"  onClick={handleSubmit} className='todo-button edit' >
-            Update
-          </Button> 
+        <HStack>
+
+          <div >
+            <Input
+              required
+              id="outlined-required"
+              label="Required"
+              placeholder='Update your item'
+              value={input}
+              onChange={handleChange}
+              name='text'
+              ref={inputRef}
+
+              className='todo-input edit' />
+            <Button colorScheme="blue"
+              _hover={{
+                background: "blue.600",
+                color: "white",
+              }}
+              id="update-btn" onClick={handleSubmit} className='todo-button edit' >
+              Update
+            </Button>
           </div>
 
-          </HStack>
-       
-   
-      ) :
-       (
-        <>
-                  <HStack >
-          <Input
-          required
-          id="outlined-required"
-          label="Required"
-            placeholder='Add a todo'
-            value={input}
-            onChange={handleChange}
-            name='text'
-            className='todo-input'
-            ref={inputRef}
-            />
- 
-    
-
-          <IconButton marginTop={5} mb={5}  colorScheme="blue" 
-    _hover={{
-    background: "blue.600 ",
-    color: "white",}}  onClick={handleSubmit} className='todo-button'  icon= {<AddIcon />} ></IconButton>
         </HStack>
-        
 
-     </>
-      )}
+
+      ) :
+        (
+          <>
+            <HStack >
+              <Input
+                required
+                id="outlined-required"
+                label="Required"
+                placeholder='Add a todo'
+                value={input}
+                onChange={handleChange}
+                name='text'
+                className='todo-input'
+                ref={inputRef}
+              />
+
+
+
+              <IconButton marginTop={5} mb={5} colorScheme="blue"
+                _hover={{
+                  background: "blue.600 ",
+                  color: "white",
+                }} onClick={handleSubmit} className='todo-button' icon={<AddIcon />} ></IconButton>
+            </HStack>
+
+
+          </>
+        )}
     </form>
 
   );

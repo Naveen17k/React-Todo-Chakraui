@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import TodoForm from './TodoForm';
 import Todo from './Todo';
-import { Heading, Badge, useToast, IconButton,useColorMode,Checkbox} from '@chakra-ui/react';
-import {VStack,HStack} from '@chakra-ui/react';
-import {FaSun} from 'react-icons/fa';
+import { Heading, Badge, useToast, IconButton, useColorMode, Checkbox } from '@chakra-ui/react';
+import { VStack, HStack } from '@chakra-ui/react';
+import { FaSun } from 'react-icons/fa';
 function TodoList() {
   const [todos, setTodos] = useState([]);
- 
+
   const addTodo = todo => {
     if (!todo.text || /^\s*$/.test(todo.text)) {
       return;
@@ -42,23 +42,23 @@ function TodoList() {
     });
     setTodos(updatedTodos);
   };
-  const   { toggleColorMode} = useColorMode();
+  const { toggleColorMode } = useColorMode();
 
-  return (      
+  return (
     <>
-    <VStack >
-    <IconButton
-  icon ={<FaSun/>}
-  isRound='true'
-  size='lg'
-  alignSelf='flex-end'   
-  onClick={toggleColorMode} 
+      <VStack >
+        <IconButton
+          icon={<FaSun />}
+          isRound='true'
+          size='lg'
+          alignSelf='flex-end'
+          onClick={toggleColorMode}
 
-  />  
-      <Heading pb={10} size='2xl' fontWeight='extrabold' bgGradient='linear(to-r, pink.500, pink.300, blue.500 ) ' bgClip='text'>ToDo Application</Heading>
+        />
+        <Heading pb={10} size='2xl' fontWeight='extrabold' bgGradient='linear(to-r, pink.500, pink.300, blue.500 ) ' bgClip='text'>ToDo Application</Heading>
 
-  </VStack>
-    
+      </VStack>
+
       <TodoForm onSubmit={addTodo} />
       <Todo
         todos={todos}
